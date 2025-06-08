@@ -1,0 +1,9 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Capture first segment as user, second segment as optional page
+RewriteRule ^([^/]+)/?([^/]*)$ send.php?username=$1&category=$2 [L,QSA]
+
+ErrorDocument 404 /404.php
